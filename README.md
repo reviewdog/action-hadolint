@@ -18,7 +18,7 @@ By default, with `reporter: github-pr-check` an annotation is added to the line:
 
 With `reporter: github-pr-review` a comment is added to the Pull Request Conversation:
 
-![Example comment made by the action, with github-pr-review](./examples/example-github-pr-review.png)
+![Example comment made by the action, with github-pr-review](examples/example-github-pr-review.png)
 
 ## Inputs
 

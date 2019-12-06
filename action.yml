@@ -1,0 +1,29 @@
+name: 'Run hadolint with reviewdog'
+description: '🐶 Run hadolint with reviewdog on pull requests to lint Dockerfile and validate inline bash.'
+author: 'mgrachev (reviewdog)'
+inputs:
+  github_token:
+    description: 'GITHUB_TOKEN.'
+    required: true
+  tool_name:
+    description: 'Tool name to use for reviewdog reporter'
+    default: 'hadolint'
+  level:
+    description: 'Report level for reviewdog [info,warning,error]'
+    default: 'error'
+  reporter:
+    description: |
+      Reporter of reviewdog command [github-pr-check,github-pr-review].
+      Default is github-pr-check.
+    default: 'github-pr-check'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.github_token }}
+    - ${{ inputs.tool_name }}
+    - ${{ inputs.level }}
+    - ${{ inputs.reporter }}
+branding:
+  icon: 'check-circle'
+  color: 'blue'

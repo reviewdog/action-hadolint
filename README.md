@@ -54,7 +54,7 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v1
       - name: hadolint
-        uses: mgrachev/action-hadolint@v0.1.2
+        uses: mgrachev/action-hadolint@v0.1.3
         with:
           github_token: ${{ secrets.github_token }}
           reporter: github-pr-review # Default is github-pr-check

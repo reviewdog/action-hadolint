@@ -1,10 +1,16 @@
 FROM alpine:3.10
 
-RUN apk add --update --no-cache git
-RUN wget -q https://github.com/hadolint/hadolint/releases/download/v1.17.3/hadolint-Linux-x86_64 -O /bin/hadolint \
-    && chmod +x /bin/hadolint
+ENV \
+    HADOLINT_VERSION=1.17.3 \
+    REVIEWDOG_VERSION=0.9.14
+
+# hadolint ignore=DL3018
+RUN apk add --no-cache git
+RUN wget -q https://github.com/hadolint/hadolint/releases/download/v$HADOLINT_VERSION/hadolint-Linux-x86_64 -O /usr/local/bin/hadolint \
+    && chmod +x /usr/local/bin/hadolint
+
+RUN wget -O - -q https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh | sh -s -- -b /usr/local/bin/ v$REVIEWDOG_VERSION
 
 COPY entrypoint.sh /entrypoint.sh
-COPY bin/reviewdog /bin/reviewdog
 
 ENTRYPOINT ["/entrypoint.sh"]

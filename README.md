@@ -1,4 +1,4 @@
-# GitHub Action: Run hadolint with reviewdog
+# GitHub Action: Run hadolint with reviewdog 🐶
 
 ![](https://github.com/mgrachev/action-hadolint/workflows/Docker%20Image%20CI/badge.svg)
 

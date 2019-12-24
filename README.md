@@ -64,7 +64,7 @@ jobs:
 
 <p>
   <a href="https://evrone.com/?utm_source=action-hadolint">
-    <img src="https://solovev.one/static/evrone-sponsored-300.png" 
+    <img src="https://www.mgrachev.com/assets/static/evrone-sponsored-300.png" 
       alt="Sponsored by Evrone" width="210">
   </a>
 </p>

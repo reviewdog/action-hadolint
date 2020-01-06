@@ -2,7 +2,7 @@ FROM alpine:3.10
 
 ENV \
     HADOLINT_VERSION=1.17.3 \
-    REVIEWDOG_VERSION=0.9.14
+    REVIEWDOG_VERSION=0.9.15
 
 # hadolint ignore=DL3018
 RUN apk add --no-cache git

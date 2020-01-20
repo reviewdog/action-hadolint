@@ -1,6 +1,8 @@
 # GitHub Action: Run hadolint with reviewdog 🐶
 
-![](https://github.com/mgrachev/action-hadolint/workflows/Docker%20Image%20CI/badge.svg)
+![](https://github.com/reviewdog/action-hadolint/workflows/CI/badge.svg)
+![](https://img.shields.io/github/license/reviewdog/action-hadolint)
+![](https://img.shields.io/github/v/release/reviewdog/action-hadolint)
 
 This action runs [hadolint](https://github.com/hadolint/hadolint) with
 [reviewdog](https://github.com/reviewdog/reviewdog) on pull requests to lint Dockerfile 
@@ -68,3 +70,7 @@ jobs:
       alt="Sponsored by Evrone" width="210">
   </a>
 </p>
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit)

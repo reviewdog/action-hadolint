@@ -26,7 +26,7 @@ With `reporter: github-pr-review` a comment is added to the Pull Request Convers
 
 ### `github_token`
 
-**Required**. Must be in form of `github_token: ${{ secrets.github_token }}`'.
+Optional. `${{ github.token }}` is used by default.
 
 ### `tool_name`
 

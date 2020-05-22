@@ -1,8 +1,11 @@
 # GitHub Action: Run hadolint with reviewdog 🐶
 
-![](https://github.com/reviewdog/action-hadolint/workflows/CI/badge.svg)
-![](https://img.shields.io/github/license/reviewdog/action-hadolint)
-![](https://img.shields.io/github/v/release/reviewdog/action-hadolint)
+[![](https://github.com/reviewdog/action-hadolint/workflows/CI/badge.svg)](https://github.com/reviewdog/action-hadolint/actions?query=workflow%3ACI)
+[![](https://img.shields.io/github/license/reviewdog/action-hadolint)](./LICENSE)
+[![depup](https://github.com/reviewdog/action-hadolint/workflows/depup/badge.svg)](https://github.com/reviewdog/action-hadolint/actions?query=workflow%3Adepup)
+[![release](https://github.com/reviewdog/action-hadolint/workflows/release/badge.svg)](https://github.com/reviewdog/action-hadolint/actions?query=workflow%3Arelease)
+[![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/reviewdog/action-hadolint?logo=github&sort=semver)](https://github.com/reviewdog/action-hadolint/releases)
+[![action-bumpr supported](https://img.shields.io/badge/bumpr-supported-ff69b4?logo=github&link=https://github.com/haya14busa/action-bumpr)](https://github.com/haya14busa/action-bumpr)
 
 This action runs [hadolint](https://github.com/hadolint/hadolint) with
 [reviewdog](https://github.com/reviewdog/reviewdog) on pull requests to lint Dockerfile 
@@ -42,6 +45,20 @@ It's same as `-level` flag of reviewdog.
 
 Optional. Reporter of reviewdog command [`github-pr-check`, `github-pr-review`].
 The default is `github-pr-check`.
+
+### `filter_mode`
+
+Optional. Filtering mode for the reviewdog command [`added`, `diff_context`, `file`, `nofilter`].
+Default is `added`.
+
+### `fail_on_error`
+
+Optional.  Exit code for reviewdog when errors are found [`true`, `false`]
+Default is `false`.
+
+### `reviewdog_flags`
+
+Optional. Additional reviewdog flags.
 
 ## Example usage
 

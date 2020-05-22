@@ -1,7 +1,7 @@
 FROM alpine:3.11
 
 ENV HADOLINT_VERSION v1.17.4
-ENV REVIEWDOG_VERSION v0.9.17
+ENV REVIEWDOG_VERSION v0.10.0
 
 SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
 RUN apk add --no-cache git

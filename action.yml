@@ -16,6 +16,19 @@ inputs:
       Reporter of reviewdog command [github-pr-check,github-pr-review].
       Default is github-pr-check.
     default: 'github-pr-check'
+  filter_mode:
+    description: |
+      Filtering mode for the reviewdog command [added,diff_context,file,nofilter].
+      Default is added.
+    default: 'added'
+  fail_on_error:
+    description: |
+      Exit code for reviewdog when errors are found [true,false]
+      Default is `false`.
+    default: 'false'
+  reviewdog_flags:
+    description: 'Additional reviewdog flags'
+    default: ''
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -24,6 +37,9 @@ runs:
     - ${{ inputs.tool_name }}
     - ${{ inputs.level }}
     - ${{ inputs.reporter }}
+    - ${{ inputs.filter_mode }}
+    - ${{ inputs.fail_on_error }}
+    - ${{ inputs.reviewdog_flags }}
 branding:
   icon: 'check-circle'
   color: 'blue'

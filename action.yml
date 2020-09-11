@@ -8,6 +8,9 @@ inputs:
   tool_name:
     description: 'Tool name to use for reviewdog reporter'
     default: 'hadolint'
+  exclude:
+    description: 'List of files and folders to exclude'
+    default: ''
   level:
     description: 'Report level for reviewdog [info,warning,error]'
     default: 'error'
@@ -35,6 +38,7 @@ runs:
   args:
     - ${{ inputs.github_token }}
     - ${{ inputs.tool_name }}
+    - ${{ inputs.exclude }}
     - ${{ inputs.level }}
     - ${{ inputs.reporter }}
     - ${{ inputs.filter_mode }}

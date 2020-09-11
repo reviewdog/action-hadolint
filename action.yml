@@ -6,7 +6,7 @@ inputs:
     description: 'GITHUB_TOKEN.'
     default: '${{ github.token }}'
   hadolint_flags:
-    description: 'Hadolint flags. (hadolint <rubocop_flags>)'
+    description: 'Hadolint flags. (hadolint <hadolint_flags>)'
     default: ''
   hadolint_ignore:
     description: 'List of ignored rules. (hadolint --ignore RULE1 --ignore RULE2)'

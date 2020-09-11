@@ -58,9 +58,9 @@ Optional. List of folders and files to exclude from checking.
 
 Use `/%FOLDER%/*` to exclude whole folder or `%FILENAME%` to exclude certain files. 
 
-Note that you can use wildcard to exclude certain file extensions, like `Dockerfile.*` will exclude `Dockerfile.dev`, but will not exclude `Dockerfile`
+Note that you can use wildcard to exclude certain file extensions, like `Dockerfile.*` will exclude `Dockerfile.dev`, but will not exclude `Dockerfile`.
 
-You can combine those rules as you wish (i.e. exclude certain files from certain folders only)
+You can combine those rules as you wish (i.e. exclude certain files from certain folders only):
 ```yaml
 with:
   exclude: |

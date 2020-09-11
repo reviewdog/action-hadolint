@@ -5,6 +5,12 @@ inputs:
   github_token:
     description: 'GITHUB_TOKEN.'
     default: '${{ github.token }}'
+  hadolint_flags:
+    description: 'Hadolint flags. (hadolint <hadolint_flags>)'
+    default: ''
+  hadolint_ignore:
+    description: 'List of ignored rules. (hadolint --ignore RULE1 --ignore RULE2)'
+    default: ''
   tool_name:
     description: 'Tool name to use for reviewdog reporter'
     default: 'hadolint'
@@ -34,6 +40,8 @@ runs:
   image: 'Dockerfile'
   args:
     - ${{ inputs.github_token }}
+    - ${{ inputs.hadolint_flags }}
+    - ${{ inputs.hadolint_ignore }}
     - ${{ inputs.tool_name }}
     - ${{ inputs.level }}
     - ${{ inputs.reporter }}

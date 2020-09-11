@@ -31,6 +31,22 @@ With `reporter: github-pr-review` a comment is added to the Pull Request Convers
 
 Optional. `${{ github.token }}` is used by default.
 
+### `hadolint_flags`
+
+Optional. Pass hadolint flags:
+```
+with:
+  hadolint_flags: --thrusted-repository docker.io
+```
+
+### `hadolint_ignore`
+
+Optional. Pass hadolint rules to ignore them:
+```
+with:
+  hadolint_ignore: DL3009 DL3008
+```
+
 ### `tool_name`
 
 Optional. Tool name to use for reviewdog reporter. Useful when running multiple

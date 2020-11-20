@@ -1,6 +1,6 @@
 FROM alpine:3.11
 
-ENV HADOLINT_VERSION v1.18.2
+ENV HADOLINT_VERSION v1.19.0
 ENV REVIEWDOG_VERSION v0.11.0
 
 SHELL ["/bin/ash", "-eo", "pipefail", "-c"]

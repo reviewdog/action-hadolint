@@ -15,7 +15,7 @@ done
 
 INPUT_HADOLINT_FLAGS="$INPUT_HADOLINT_FLAGS $IGNORE_LIST"
 
-git ls-files --exclude='Dockerfile*' --ignored ${EXCLUDES} \
+git ls-files --exclude='*Dockerfile*' --ignored ${EXCLUDES} \
   | xargs hadolint ${INPUT_HADOLINT_FLAGS} \
   | reviewdog -efm="%f:%l %m" \
     -name="${INPUT_TOOL_NAME}" \

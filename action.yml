@@ -3,7 +3,7 @@ description: '🐶 Run hadolint with reviewdog on pull requests to lint Dockerfi
 author: 'mgrachev (reviewdog)'
 inputs:
   github_token:
-    description: 'GITHUB_TOKEN.'
+    description: 'GITHUB_TOKEN'
     default: '${{ github.token }}'
   hadolint_flags:
     description: 'Hadolint flags. (hadolint <hadolint_flags>)'
@@ -39,19 +39,25 @@ inputs:
     description: 'Additional reviewdog flags'
     default: ''
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
-  args:
-    - ${{ inputs.github_token }}
-    - ${{ inputs.hadolint_flags }}
-    - ${{ inputs.hadolint_ignore }}
-    - ${{ inputs.tool_name }}
-    - ${{ inputs.exclude }}
-    - ${{ inputs.level }}
-    - ${{ inputs.reporter }}
-    - ${{ inputs.filter_mode }}
-    - ${{ inputs.fail_on_error }}
-    - ${{ inputs.reviewdog_flags }}
+  using: 'composite'
+  steps:
+    - run: $GITHUB_ACTION_PATH/script.sh
+      shell: sh
+      env:
+        REVIEWDOG_VERSION: v0.11.0
+        HADOLINT_VERSION: v1.19.0
+        # INPUT_<VARIABLE_NAME> is not available in Composite run steps
+        # https://github.community/t/input-variable-name-is-not-available-in-composite-run-steps/127611
+        INPUT_GITHUB_TOKEN: ${{ inputs.github_token }}
+        INPUT_EXCLUDE: ${{ inputs.exclude }}
+        INPUT_HADOLINT_IGNORE: ${{ inputs.hadolint_ignore }}
+        INPUT_HADOLINT_FLAGS: ${{ inputs.hadolint_flags }}
+        INPUT_TOOL_NAME: ${{ inputs.tool_name }}
+        INPUT_LEVEL: ${{ inputs.level }}
+        INPUT_REPORTER: ${{ inputs.reporter }}
+        INPUT_FILTER_MODE: ${{ inputs.filter_mode }}
+        INPUT_FAIL_ON_ERROR: ${{ inputs.fail_on_error }}
+        INPUT_REVIEWDOG_FLAGS: ${{ inputs.reviewdog_flags }}
 branding:
   icon: 'check-circle'
   color: 'blue'

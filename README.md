@@ -1,6 +1,5 @@
 # GitHub Action: Run hadolint with reviewdog 🐶
 
-[![](https://github.com/reviewdog/action-hadolint/workflows/CI/badge.svg)](https://github.com/reviewdog/action-hadolint/actions?query=workflow%3ACI)
 [![](https://img.shields.io/github/license/reviewdog/action-hadolint)](./LICENSE)
 [![depup](https://github.com/reviewdog/action-hadolint/workflows/depup/badge.svg)](https://github.com/reviewdog/action-hadolint/actions?query=workflow%3Adepup)
 [![release](https://github.com/reviewdog/action-hadolint/workflows/release/badge.svg)](https://github.com/reviewdog/action-hadolint/actions?query=workflow%3Arelease)

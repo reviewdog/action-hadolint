@@ -1,4 +1,4 @@
-# Convert hadlint JSON output to Reviewdog Diagnostic Format (rdjson)
+# Convert hadolint JSON output to Reviewdog Diagnostic Format (rdjson)
 # https://github.com/reviewdog/reviewdog/blob/f577bd4b56e5973796eb375b4205e89bce214bd9/proto/rdf/reviewdog.proto
 {
   source: {

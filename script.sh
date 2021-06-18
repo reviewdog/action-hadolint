@@ -31,7 +31,7 @@ done
 INPUT_HADOLINT_FLAGS="$INPUT_HADOLINT_FLAGS $IGNORE_LIST"
 
 echo '::group:: Running hadolint with reviewdog 🐶 ...'
-git ls-files --exclude='*Dockerfile*' --ignored ${EXCLUDES} \
+git ls-files --exclude='*Dockerfile*' --ignored --cached ${EXCLUDES} \
   | xargs hadolint -f json ${INPUT_HADOLINT_FLAGS} \
   | jq -f "${GITHUB_ACTION_PATH}/to-rdjson.jq" -c \
   | reviewdog -f="rdjson" \

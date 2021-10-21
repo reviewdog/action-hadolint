@@ -106,7 +106,6 @@ jobs:
       - name: hadolint
         uses: reviewdog/action-hadolint@v1
         with:
-          github_token: ${{ secrets.github_token }}
           reporter: github-pr-review # Default is github-pr-check
 ```
 

@@ -10,7 +10,7 @@ jobs:
     name: runner / hadolint (github-check)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: ./
         with:
           reporter: github-check
@@ -21,7 +21,7 @@ jobs:
     name: runner / hadolint (github-pr-review)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: ./
         with:
           reporter: github-pr-review

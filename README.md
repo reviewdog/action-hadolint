@@ -35,7 +35,7 @@ Optional. `${{ github.token }}` is used by default.
 Optional. Pass hadolint flags:
 ```
 with:
-  hadolint_flags: --thrusted-repository docker.io
+  hadolint_flags: --trusted-registry docker.io
 ```
 
 ### `hadolint_ignore`

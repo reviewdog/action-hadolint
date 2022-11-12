@@ -20,7 +20,11 @@ export REVIEWDOG_GITHUB_API_TOKEN="${INPUT_GITHUB_TOKEN}"
 
 EXCLUDES=""
 for exclude_path in $INPUT_EXCLUDE; do
-  EXCLUDES="$EXCLUDES --exclude='!$exclude_path'"
+  if [ -n "$EXCLUDES" ]; then
+    EXCLUDES="$EXCLUDES|$exclude_path"
+  else
+    EXCLUDES="$exclude_path"
+  fi
 done
 
 IGNORE_LIST=""
@@ -31,7 +35,7 @@ done
 INPUT_HADOLINT_FLAGS="$INPUT_HADOLINT_FLAGS $IGNORE_LIST"
 
 echo '::group:: Running hadolint with reviewdog 🐶 ...'
-git ls-files --exclude='*Dockerfile*' --ignored --cached ${EXCLUDES} \
+git ls-files --exclude='*Dockerfile*' --ignored --cached | grep -Ev "$EXCLUDES" \
   | xargs hadolint -f json ${INPUT_HADOLINT_FLAGS} \
   | jq -f "${GITHUB_ACTION_PATH}/to-rdjson.jq" -c \
   | reviewdog -f="rdjson" \

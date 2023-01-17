@@ -20,7 +20,8 @@ export REVIEWDOG_GITHUB_API_TOKEN="${INPUT_GITHUB_TOKEN}"
 
 EXCLUDES=""
 for exclude_path in $INPUT_EXCLUDE; do
-  EXCLUDES="$EXCLUDES --exclude='!$exclude_path'"
+  set -- --exclude="!${exclude_path}"
+  EXCLUDES="$EXCLUDES $*"
 done
 
 IGNORE_LIST=""

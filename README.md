@@ -102,7 +102,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
-        uses: actions/checkout@v1
+        uses: actions/checkout@v4
       - name: hadolint
         uses: reviewdog/action-hadolint@v1
         with:

@@ -67,6 +67,21 @@ with:
     Dockerfile.*
 ```
 
+### `include`
+
+Optional. Defaults to `*Dockerfile*`. List of folders and files to use for checking.
+
+Use `/%FOLDER%/*` to include whole folder or `%FILENAME%` to include certain files.
+
+Note that you can use wildcard to include certain file extensions, like `Dockerfile.*` will include `Dockerfile.dev`, but will not include `Dockerfile`.
+
+You can combine those rules as you wish (i.e. exclude certain files from certain folders only):
+```yaml
+with:
+  include: |
+    subfolder/Dockerfile.*
+```
+
 ### `level`
 
 Optional. Report level for reviewdog [`info`, `warning`, `error`].

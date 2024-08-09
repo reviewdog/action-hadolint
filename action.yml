@@ -17,6 +17,9 @@ inputs:
   exclude:
     description: 'List of files and folders to exclude'
     default: ''
+  include:
+    description: 'List of files and folders to include'
+    default: '*Dockerfile*'
   level:
     description: 'Report level for reviewdog [info,warning,error]'
     default: 'error'
@@ -50,6 +53,7 @@ runs:
         # https://github.community/t/input-variable-name-is-not-available-in-composite-run-steps/127611
         INPUT_GITHUB_TOKEN: ${{ inputs.github_token }}
         INPUT_EXCLUDE: ${{ inputs.exclude }}
+        INPUT_INCLUDE: ${{ inputs.include }}
         INPUT_HADOLINT_IGNORE: ${{ inputs.hadolint_ignore }}
         INPUT_HADOLINT_FLAGS: ${{ inputs.hadolint_flags }}
         INPUT_TOOL_NAME: ${{ inputs.tool_name }}

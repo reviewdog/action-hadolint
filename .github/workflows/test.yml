@@ -28,3 +28,4 @@ jobs:
           reporter: github-pr-review
           filter_mode: diff_context
           exclude: Dockerfile.dockerignore
+          fail_level: warning

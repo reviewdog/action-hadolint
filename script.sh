@@ -24,6 +24,12 @@ for exclude_path in $INPUT_EXCLUDE; do
   EXCLUDES="$EXCLUDES $*"
 done
 
+INCLUDES=""
+for include_path in $INPUT_INCLUDE; do
+  set -- --exclude="${include_path}"
+  INCLUDES="$INCLUDES $*"
+done
+
 IGNORE_LIST=""
 for rule in $INPUT_HADOLINT_IGNORE; do
   IGNORE_LIST="$IGNORE_LIST --ignore $rule"
@@ -32,7 +38,7 @@ done
 INPUT_HADOLINT_FLAGS="$INPUT_HADOLINT_FLAGS $IGNORE_LIST"
 
 echo '::group:: Running hadolint with reviewdog 🐶 ...'
-git ls-files --exclude='*Dockerfile*' --ignored --cached ${EXCLUDES} \
+git ls-files ${INCLUDES} --ignored --cached ${EXCLUDES} \
   | xargs hadolint -f json ${INPUT_HADOLINT_FLAGS} \
   | jq -f "${GITHUB_ACTION_PATH}/to-rdjson.jq" -c \
   | reviewdog -f="rdjson" \

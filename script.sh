@@ -12,7 +12,13 @@ curl -sfL https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.s
 echo '::endgroup::'
 
 echo '::group:: Installing hadolint ... https://github.com/hadolint/hadolint'
-wget -q https://github.com/hadolint/hadolint/releases/download/$HADOLINT_VERSION/hadolint-Linux-x86_64 -O $TEMP_PATH/hadolint \
+HADOLINT_FILE="hadolint-Linux-x86_64"
+
+if [ "$RUNNER_ARCH" = "ARM64" ]; then
+  HADOLINT_FILE="hadolint-Linux-arm64"
+fi
+
+wget -q "https://github.com/hadolint/hadolint/releases/download/$HADOLINT_VERSION/$HADOLINT_FILE" -O $TEMP_PATH/hadolint \
     && chmod +x $TEMP_PATH/hadolint
 echo '::endgroup::'
 

@@ -18,7 +18,15 @@ if [ "$RUNNER_ARCH" = "ARM64" ]; then
   HADOLINT_FILE="hadolint-Linux-arm64"
 fi
 
-wget -q "https://github.com/hadolint/hadolint/releases/download/$HADOLINT_VERSION/$HADOLINT_FILE" -O $TEMP_PATH/hadolint \
+if [[ "${INPUT_HADOLINT_VERSION}" = "latest" ]]; then
+  # latest release is available at this URL
+  # see: https://docs.github.com/en/repositories/releasing-projects-on-github/linking-to-releases
+  HADOLINT_DOWNLOAD_URL="https://github.com/hadolint/hadolint/releases/latest/download/${HADOLINT_FILE}"
+else
+  HADOLINT_DOWNLOAD_URL="https://github.com/hadolint/hadolint/releases/download/${INPUT_HADOLINT_VERSION}/${HADOLINT_FILE}"
+fi
+
+wget -q "$HADOLINT_DOWNLOAD_URL" -O $TEMP_PATH/hadolint \
     && chmod +x $TEMP_PATH/hadolint
 echo '::endgroup::'
 

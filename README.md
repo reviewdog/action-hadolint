@@ -30,6 +30,14 @@ With `reporter: github-pr-review` a comment is added to the Pull Request Convers
 
 Optional. `${{ github.token }}` is used by default.
 
+### `hadolint_version`
+
+Optional. Version of the hadolint, default is latest.
+```
+with:
+  hadolint_version: v2.14.0
+```
+
 ### `hadolint_flags`
 
 Optional. Pass hadolint flags:

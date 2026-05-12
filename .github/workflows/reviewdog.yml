@@ -7,7 +7,7 @@ jobs:
     steps:
       - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       - name: shellcheck
-        uses: reviewdog/action-shellcheck@57079a832290a049f49cee90984b072c870fb7d4 # v1.29.3
+        uses: reviewdog/action-shellcheck@4c07458293ac342d477251099501a718ae5ef86e # v1.32.0
         with:
           github_token: ${{ secrets.github_token }}
   misspell:

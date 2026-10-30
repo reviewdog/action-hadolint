@@ -5,9 +5,9 @@ jobs:
     name: runner / shellcheck
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/checkout@v7.0.1
       - name: shellcheck
-        uses: reviewdog/action-shellcheck@d0b8d5fd7fad6afdb6e1b6ce1778892be4d1f427 # v1.34.1
+        uses: reviewdog/action-shellcheck@v1.34.1
         with:
           github_token: ${{ secrets.github_token }}
   misspell:
@@ -15,9 +15,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out code.
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        uses: actions/checkout@v7.0.1
       - name: misspell
-        uses: reviewdog/action-misspell@840bfbe9f804da9afb0bd739dc4689012f3fdd2d # v1.30.4
+        uses: reviewdog/action-misspell@v1.30.4
         with:
           github_token: ${{ secrets.github_token }}
           locale: "US"

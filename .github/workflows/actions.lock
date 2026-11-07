@@ -20,7 +20,7 @@ workflows:
         - 'actions/checkout@v7.0.1'
     '.github/workflows/yamllint.yml':
         - 'actions/checkout@v7.0.1'
-        - 'reviewdog/action-yamllint@v1.25.4'
+        - 'reviewdog/action-yamllint@v1.26.0'
 dependencies:
     'actions/checkout@v7.0.1':
         ref: 'v7.0.1'
@@ -69,8 +69,8 @@ dependencies:
         repo_id: 211116201
         uses:
             - 'reviewdog/action-setup@d8a7baabd7f3e8544ee4dbde3ee41d0011c3a93f'
-    'reviewdog/action-yamllint@v1.25.4':
-        ref: 'v1.25.4'
-        commit: 'sha1-072d1a6ca6f5a03de10f492f6119fcbc8d47302b'
+    'reviewdog/action-yamllint@v1.26.0':
+        ref: 'v1.26.0'
+        commit: 'sha1-020fba38ce9fed550c704d933aeeb7d6360f7d47'
         owner_id: 48765237
         repo_id: 233270440
